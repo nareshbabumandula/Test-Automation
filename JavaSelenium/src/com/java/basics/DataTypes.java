@@ -12,6 +12,11 @@ public class DataTypes {
 		System.out.println("Short value is : " + s);
 		System.out.println(Short.MIN_VALUE);
 		System.out.println(Short.MAX_VALUE);
+		int i = 34536;
+		System.out.println("Integer value is : " + s);
+		System.out.println(Integer.MIN_VALUE);
+		System.out.println(Integer.MAX_VALUE);
+		
 	}
 
 }
