@@ -28,6 +28,10 @@ public class MinMaxValue {
 		System.out.println("Double value of d:"+d);
 		System.out.println(Double.MIN_VALUE);
 		System.out.println(Double.MAX_VALUE);
+		//non primitive data
+		String str=("padma");
+		System.out.println("String value of str:"+str);
+	
 
 	}
 }
