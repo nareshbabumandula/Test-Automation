@@ -32,6 +32,10 @@ public class DataTypesDemo {
 		// Non primitive data types
 		String str = "hello world";
 		System.out.println(str);
+		// primitive data types 23 feb
+		char c = 'b';
+		System.out.println("Character value of c is : " + b);
+		
 		
 	}
 }
