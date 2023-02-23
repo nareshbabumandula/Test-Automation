@@ -29,7 +29,7 @@ public class DataTypesDemo {
 		System.out.println(Double.MIN_VALUE);
 		System.out.println(Double.MAX_VALUE);
 		
-		// Non primitive datatypes
+		// Non primitive data types
 		String str = "hello world";
 		System.out.println(str);
 		
