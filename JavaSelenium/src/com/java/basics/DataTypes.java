@@ -32,5 +32,15 @@ public class DataTypes {
 		System.out.println("Character value of c is : " + c);
 		boolean bFlag = true;
 		System.out.println("Boolean value of bFlag is : " + bFlag);
+		
+		// Non primitive datatype
+		String str = "welcome to core java training";
+		System.out.println(str);
+		
+		String names[] = {"naresh", "abhinav", "padma", "keerthana", "satayaleela", "pruthvi"};
+		System.out.println(names[0]);
+		System.out.println(names[1]);
+		System.out.println("No of elements in names array is : " + names.length);
+		
 	}
 }
