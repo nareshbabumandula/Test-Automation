@@ -1,4 +1,4 @@
-package com.java.basics.padma;
+package practice;
 
 public class MinMaxValue {
 
