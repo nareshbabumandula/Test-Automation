@@ -30,7 +30,7 @@ public class JavaDataTypes {
 		char c = 'h';
 		System.out.println("Character value of c is : " + c);
 		boolean bFlag = true;
-		System.out.println("Boolean value of bFlag is : " + bFlag);
+		System.out.println("Boolean value of bFlag is : " + bFlag); 
 		
 	}
 	
