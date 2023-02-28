@@ -41,6 +41,23 @@ public class DataTypesDemo {
 		System.out.println("Fine");
 		System.out.println("Where are you..");
 		System.out.println("In eclipse");
+		//
+		String str1 ="Something";
+		System.out.println(str1.hashCode());
+		String str1Text ="As your wish we can type anything";
+		System.out.println(str1Text.hashCode());
+		System.out.println(str1.toLowerCase());
+		System.out.println(str1Text.toLowerCase());
+		System.out.println(str1.length());
+		System.out.println(str1Text.length());
+		System.out.println(str1.contains("something"));
+		System.out.println(str1.contains("Something"));
+		System.out.println(str1.replace("Something","Anything"));
+		System.out.println(str.endsWith(str1Text));
+		System.out.println(str1.equals(str1Text));
+		String str2="Something";
+		System.out.println(str1.equals(str2));		
+		
 		
 		
 				
