@@ -1,4 +1,4 @@
-package com.java.basics.padma;
+package practice;
 
 public class MinMaxValue {
 
@@ -31,6 +31,10 @@ public class MinMaxValue {
 		//non primitive data
 		String str=("padma");
 		System.out.println("String value of str:"+str);
+		String st[]={"padma","Ravi","Nikhlkrishna","Himani"};
+		System.out.println(st[0]);
+		System.out.println(st[2]);
+		System.out.println("My family memers names are:"+st.length);
 	
 
 	}
