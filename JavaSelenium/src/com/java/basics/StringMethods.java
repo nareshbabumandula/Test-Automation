@@ -24,9 +24,37 @@ public class StringMethods {
 		System.out.println(str==st); // We can use == operators for reference comparison (address comparison)
 		System.out.println(str.contains("l"));
 		System.out.println(strText.contains("meetings"));
+		System.out.println("String starts with status is : " + strText.startsWith("Make"));
 		System.out.println(strText.endsWith("offering."));
 		System.out.println(str.equalsIgnoreCase(sText));
 		System.out.println(str.equals(sText.toLowerCase()));
+		System.out.println(strText.substring(0, 6));
+		System.out.println(str.concat(" ").concat(sText));
+		System.out.println(str + " " + sText);
+		System.out.println(str.isBlank());
+		System.out.println(str.isEmpty());
+		String string = "";
+		System.out.println(string.isBlank());
+		System.out.println(string.isEmpty());
+		String ss = null;
+		//System.out.println(ss.isBlank());
+		//System.out.println(ss.isEmpty());
+		
+		String asText[] = strText.split(" ");
+		System.out.println(asText[0]);
+		System.out.println(asText[1]);
+		System.out.println(asText[2]);
+		System.out.println(asText.length);
+		// System.out.println(asText[50]);  // java.lang.ArrayIndexOutOfBoundsException
+		
+		for(int i=0; i<asText.length;i++) {
+			String value = asText[i];
+			System.out.println(value);
+		}
+		System.out.println("Foreach loop started..!");
+		for (String element : asText) {
+			System.out.println(element);
+		}
 	}
 
 }
