@@ -35,8 +35,8 @@ public class StringMethodsPractice {
 		  for(int i=0; i<s.length(); i++) { 
 			  System.out.println(s.charAt(i)); }
 			 
-		String wordsofs[] = s.split(",");
-		//System.out.println(wordsofs[0]);
+		String wordsofs[] = s.split(" ");
+		System.out.println(wordsofs[0]);
 		//System.out.println(wordsofs[50]);
 		
 		for(int i=0; i<wordsofs.length; i++) {
