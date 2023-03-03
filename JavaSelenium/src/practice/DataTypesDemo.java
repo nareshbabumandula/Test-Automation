@@ -56,10 +56,26 @@ public class DataTypesDemo {
 		System.out.println(str.endsWith(str1Text));
 		System.out.println(str1.equals(str1Text));
 		String str2="Something";
-		System.out.println(str1.equals(str2));		
+		System.out.println(str1.equals(str2));	
+		
+
+		System.out.println(str1.isBlank());
+		System.out.println(str2.isEmpty());
+		System.out.println(str1Text.concat(str1));
+		System.out.println(str1.concat("    ").concat(str2));
+		String asText[] =str1Text.split(" ");
+		System.out.println(asText[0]);
+		System.out.println(asText[1]);
+		System.out.println(asText[2]);
+		System.out.println(asText[3]);
+		System.out.println(asText[4]);
+		System.out.println(asText[5]);
+		System.out.println(asText[6]);
+	
 		
 		
 		
+
 				
 		
 	}
