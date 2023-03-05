@@ -7,7 +7,7 @@ public class JavaArithmeticTest {
 
 	void Addition() {	
 		int d = a+b+c;
-		System.out.println(d);
+		System.out.println("Addition of three numbers:" + d);
 	}
 	
 	void Subtraction() {	
@@ -15,24 +15,23 @@ public class JavaArithmeticTest {
 		System.out.println(d);
 	}
 	
-	void Multiplication() {	
+	void Multiplication(int a, int b, int c) {	
 		int d = a*b*c;
-		System.out.println(d);
+		String s = "Multiplication of three numbers :"; 
+		System.out.println(s + d);
 	}
 	
-	void Division() {	
+	int Division() {	
 		int d = c/a;
-		System.out.println(d);
+		return d;
 	}
 
 	public static void main(String[] args) {
 		JavaArithmeticTest arthm = new JavaArithmeticTest();
 		arthm.Addition();
 		arthm.Subtraction();
-		arthm.Multiplication();
-		arthm.Division();
-		
-
+		arthm.Multiplication(1,10,100);
+		System.out.println("Division of two numbers: " + arthm.Division());
 	}
 
 }
