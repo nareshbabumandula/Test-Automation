@@ -36,6 +36,9 @@ public class StringMethods {
 		String string = "";
 		System.out.println(string.isBlank());
 		System.out.println(string.isEmpty());
+		String stext = "                     hello world                      ";
+		System.out.println(stext.trim());
+		
 		String ss = null;
 		//System.out.println(ss.isBlank());
 		//System.out.println(ss.isEmpty());
