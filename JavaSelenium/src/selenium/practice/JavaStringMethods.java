@@ -16,7 +16,14 @@ public class JavaStringMethods {
 		System.out.println(s.indexOf('l'));
 		System.out.println(str.replace("World", "My World"));
 		System.out.println(st.equals("Hello"));
-
+		System.out.println("Contains " + str.contains("Hello"));
+		System.out.println("Starts with "+ str.startsWith("Hello"));
+		System.out.println("Ends with " + str.endsWith("World."));
+		System.out.println(st.equals(s.toUpperCase()));
+		System.out.println(str.substring(6,12));
+		String ss[] = str.split(" "); 
+		System.out.println(str.concat(" ").concat(ss[0]));
+		System.out.println(s + " " + st + " " + str );
 	}
 
 }
