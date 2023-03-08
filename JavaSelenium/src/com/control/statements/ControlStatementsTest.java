@@ -20,8 +20,13 @@ public class ControlStatementsTest {
 			continue statement
 	 */
 	void ifTest() {
+		boolean bFlag=false;
 		if (a>b) {
+			bFlag=true;
 			System.out.println("a is greater than b");
+			if (bFlag) {
+				System.out.println("a is greater..!");
+			}
 		}else if(a==b){
 			System.out.println("a is equal to b");
 		}else {
@@ -57,8 +62,63 @@ public class ControlStatementsTest {
 			break;
 		}
 	}
+	
+	
+	void forLoopExample() {
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Iteration is : " + i);
+		}
+	}
+	
+	void evenOrOdd(int num) {
+		for (int i = 0; i < num; i++) {
+			if(i%2==0) {
+				System.out.println(i + " : is an even number");
+			}else {
+				System.out.println(i + " : is an odd number");
+			}
+		}
+	}
 
+	void forEachExample() {
+		String[] students = {"padma", "keerthana", "pruthvi", "nirmala", "nandini", "satya"};
+		
+		for (String string : students) {
+			System.out.println(string);
+		}
+	}
 
+	void whileLoopExample() {
+		int i=0;
+		
+		while (i<=20) {
+			System.out.println("Iteration in while loop is : " +i);
+			i=i+1;
+		}
+	}
+	
+	void dowhileLoopExample() {
+		int i=0;
+		
+		do {
+			System.out.println("Iteration in do while loop is : " +i);
+			i=i+1;
+		} while (i<=20);
+	}
+	
+	void breakandContinueExample() {
+		for (int i = 0; i < 10; i++) {
+			System.out.println("Iteration is : " +i);
+			
+			if(i==4) {
+				continue;
+			}
+			if(i==6) {
+				break;
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		//Using the new keyword is the most popular way to create an object or instance of the class. 
 		//When we create an instance of the class by using the new keyword, it allocates memory (heap)
@@ -68,6 +128,12 @@ public class ControlStatementsTest {
 		cst.ifTest();
 		cst.switchTest("SUN");
 		cst.switchTest("sund ");
+		cst.forLoopExample();
+		cst.evenOrOdd(20);
+		cst.forEachExample();
+		cst.whileLoopExample();
+		cst.dowhileLoopExample();
+		cst.breakandContinueExample();
 		
 
 	}
