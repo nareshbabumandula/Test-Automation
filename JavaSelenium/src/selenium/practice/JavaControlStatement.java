@@ -17,7 +17,7 @@ public class JavaControlStatement {
 			System.out.println("a is less than b.");
 		}
 	}
-	
+
 	void switchTest(String wkday) {
 		switch(wkday.toLowerCase()) {
 		case "sun":
@@ -43,7 +43,7 @@ public class JavaControlStatement {
 			break;
 		}
 	}
-	
+
 	void switchTestMonth(String mnth) {
 		switch (mnth.trim()) {
 		case "jan" :
@@ -53,7 +53,7 @@ public class JavaControlStatement {
 			System.out.println("February");
 			break;
 		case "mar" :
-			System.out.println("    March");
+			System.out.println("     Month    March     ");
 			break;
 		case "apr" :
 			System.out.println("April");
@@ -74,7 +74,7 @@ public class JavaControlStatement {
 			System.out.println("September");
 			break;
 		case "oct" :
-			System.out.println("October    ");
+			System.out.println("October");
 			break;
 		case "nov" :
 			System.out.println("November");
@@ -86,16 +86,53 @@ public class JavaControlStatement {
 			System.out.println("Enter a Valid Month.");
 			break;
 		}
-		
 	}
-
+	
+		void forLoopTest() {
+			for(int i=0; i<10;i++) {
+				System.out.println("Iteration number :" + i);
+			}
+		}
+		
+		void oddOrEven(int num) {
+			for(int i=0; i<num; i++) {
+				if(i%2==0) {
+					System.out.println(i + ": is Even Number.");
+				}
+				else {
+					System.out.println(i + ": is Odd Number.");
+				}	
+			}
+		}
+		
+		void whileLoopTest() {
+			int i=0;
+			while(i<10) {
+				System.out.println("Iteration in Whileloop is : " + i);
+				i=i+2;
+			}
+		}
+		
+		void doWhileLoopTest() {
+			int i=0;
+			
+			do {
+				
+				System.out.println("In Do While Loop, First Executed and then it will check the Condition.\nIteration Number is : " + i );
+				i=i+3;
+				
+			}while(i<5);
+		}
 
 	public static void main(String[] args) {
 		JavaControlStatement cs =new JavaControlStatement();
 		cs.ifTest();
 		cs.switchTestMonth("mar");
 		cs.switchTest("sat");
-		
+		cs.forLoopTest();
+		cs.oddOrEven(5);
+		cs.whileLoopTest();
+		cs.doWhileLoopTest();
 
 	}
 
