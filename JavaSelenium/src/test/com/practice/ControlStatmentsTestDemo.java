@@ -171,10 +171,11 @@ public class ControlStatmentsTestDemo {
 			System.out.println(r);
 		}
 	}
+
 	//program to print prime numbers between 1 and 100
 	void primenumbers() {
-		int number = 100, count = 0;;
-		for (int i = 1; i <= number; i++) {
+		int number = 100, count = 0;
+		for (int i = 2; i <= number; i++) {
 			count = 0;
 			for (int j = 2; j <= i / 2; j++) {
 				if (i % j == 0) {
@@ -187,6 +188,7 @@ public class ControlStatmentsTestDemo {
 			}
 		}
 	}
+
 	//program to check whether it is a prime number or not
 	void verifyprimenumber() {
 		int number=89;
@@ -224,6 +226,7 @@ public class ControlStatmentsTestDemo {
 	}
 	public static void main(String[] args) {
 		ControlStatmentsTestDemo cstd = new ControlStatmentsTestDemo();
+		cstd.primenumbers();
 		cstd.ifTest();
 		cstd.switchTest();
 		cstd.switchTest("        bipc      ");
@@ -235,7 +238,6 @@ public class ControlStatmentsTestDemo {
 		cstd.dowhileLoop();
 		cstd.printnumbers();
 		cstd.reverseorder();
-		cstd.primenumbers();
 		cstd.verifyprimenumber();
 		cstd.verifynonprimenumber();
 		cstd.findfactorialnumber();
