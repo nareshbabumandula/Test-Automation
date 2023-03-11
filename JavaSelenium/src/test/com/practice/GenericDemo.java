@@ -1,4 +1,4 @@
-package practice;
+package test.com.practice ;
 
 public class GenericDemo {
 
