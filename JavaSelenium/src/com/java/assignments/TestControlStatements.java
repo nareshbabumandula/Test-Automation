@@ -19,7 +19,7 @@ public class TestControlStatements {
 
 		if(n==1) {
 			System.out.println( n + " is a Prime number");
-		}
+			}
 			int c=0;
 			for(int i=1;i<=n;i++) {
 				if(n%i==0)
