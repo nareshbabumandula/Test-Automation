@@ -33,7 +33,7 @@ public class TestControlStatements {
 		System.out.println("Prime numbers upto "+n);
 		for(i=1;i<=n;i++) {
 			if(i==1)
-				System.out.println( i + " is a prime number");
+				System.out.println(i + " is a prime number");
 			int c=0;
 			for(j=1;j<=i;j++) {
 				if(i%j==0) {
