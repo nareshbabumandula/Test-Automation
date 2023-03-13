@@ -1,4 +1,4 @@
-package java.assignments;
+package com.java.assignments;
 
 public class TestControlStatements {
 
@@ -16,17 +16,21 @@ public class TestControlStatements {
 	void primeOrNot(int n) {
 		System.out.println("Given number is Prime or not ?");
 		System.out.println("Enter number : " + n);
-		if(n==1)
+
+		if(n==1) {
 			System.out.println( n + " is a Prime number");
-		int c=0;
-		for(int i=1;i<=n;i++) {
-			if(n%i==0)
-				c++;
 		}
-		if(c==2)
-			System.out.println(n + " is a Prime number");
-		else
-			System.out.println( n + " is not a Prime number");
+			int c=0;
+			for(int i=1;i<=n;i++) {
+				if(n%i==0)
+					c++;
+			}
+			if(c==2) {
+				System.out.println(n + " is a Prime number");
+			}
+			else {
+				System.out.println( n + " is not a Prime number");
+			}
 	}
 	void primeSeries() {
 		int i,j,n=100;
