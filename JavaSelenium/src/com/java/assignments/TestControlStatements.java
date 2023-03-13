@@ -56,10 +56,10 @@ public class TestControlStatements {
 	void printNumbers(int n) {
 		int c=1;
 		System.out.println("Given Ordered List : ");
-		System.out.println( c );
+		System.out.println(c);
 		for(int i=1;i<=n;i++) {
 			c = c + 3;
-			System.out.println( c );
+			System.out.println(c);
 		}
 	}
 	
