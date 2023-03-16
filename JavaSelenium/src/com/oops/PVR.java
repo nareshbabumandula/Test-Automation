@@ -17,6 +17,11 @@ public class PVR extends Theatre{
 	void emergencyExit() {
 		System.out.println("8 emergency exists are available");
 	}
+	
+	public PVR() {
+		super.onlineticketBooking();
+		//super(1,2);
+	}
 
 	
 	public static void main(String[] args) {
@@ -25,6 +30,7 @@ public class PVR extends Theatre{
 		p.cafeteria();
 		p.emergencyExit();
 		p.onlineticketBooking();
+		soundSystem(); // static method of an abstract class
 
 	}
 

@@ -14,10 +14,21 @@ abstract class Theatre {
     void onlineticketBooking() {
     	System.out.println("Online ticket booking facility..!");
     }
+    
+    static void soundSystem() {
+    	System.out.println("Dolby digital sound system..!");
+    }
+    
+    // Constructor
+    public Theatre() {
+		System.out.println("This is a no argument constructor..!");
+	}
       
 
 	public static void main(String[] args) {
 		// Theatre t = new Theatre();
+		soundSystem();
+
 	}
 
 }
