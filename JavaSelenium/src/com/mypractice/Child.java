@@ -5,7 +5,7 @@ public class Child extends Parent {
 	String name = "Child";
     int age = 5;
 	void print() {
-		System.out.println("Child method is called");
+		System.out.println("Child class method is called");
 	}
 
 	public static void main(String[] args) {
