@@ -1,21 +1,19 @@
 package com.control.statements;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
 
-import com.object.repository.LoginPage;
 import com.utilities.Utility;
 
 public class BrowserTest extends Utility{
 
 	WebDriver driver;
-	LoginPage lp;
-	
+
 	void accessSite() throws IOException, InterruptedException {
 
 		String browser = ReadProperty("browserType");  
@@ -41,23 +39,16 @@ public class BrowserTest extends Utility{
 			break;
 		}
 		driver.manage().window().maximize();
-		Thread.sleep(2000);
-	}
-	
-	void verifyLogin() throws InterruptedException {
-		lp = PageFactory.initElements(driver, LoginPage.class);
-		lp.login("naresh", "secure");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.quit();
 	}
+
 
 
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		BrowserTest bt = new BrowserTest();
 		bt.accessSite();
-		bt.verifyLogin();
-
 
 	}
 
