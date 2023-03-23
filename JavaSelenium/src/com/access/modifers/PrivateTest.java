@@ -17,7 +17,8 @@ public class PrivateTest {
 	private PrivateTest() {
 		System.out.println("This is a private constructor..!");
 	}
-
+	
+	
 	public static void main(String[] args) {
 		PrivateTest pt = new PrivateTest();
 		System.out.println(pt.url);
@@ -25,6 +26,11 @@ public class PrivateTest {
 		System.out.println(pt.password);
 		pt.accessSite();
 		pt.login();
+		System.out.println(pt.hashCode());
+		PrivateTest pt1 = new PrivateTest();
+		System.out.println(pt1.hashCode());
+		PrivateTest pt2 = new PrivateTest();
+		System.out.println(pt2.hashCode());
 	}
 
 }
