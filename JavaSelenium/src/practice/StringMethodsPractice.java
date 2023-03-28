@@ -1,5 +1,7 @@
 package practice;
 
+import java.util.Iterator;
+
 public class StringMethodsPractice {
 
 	public static void main(String[] args) {
@@ -20,8 +22,30 @@ public class StringMethodsPractice {
 		System.out.println(str.matches(s));
 		System.out.println(str.hashCode());
 		System.out.println(strs.hashCode());
-				
 		
+		System.out.println(st.isEmpty());
+		System.out.println(str.isBlank());
+		String p=" ";
+		System.out.println(p.isEmpty());
+		System.out.println(p.isBlank());
+		System.out.println(s.length());
+		
+		
+		
+		  for(int i=0; i<s.length(); i++) { 
+			  System.out.println(s.charAt(i)); }
+			 
+		String wordsofs[] = s.split(" ");
+		System.out.println(wordsofs[0]);
+		//System.out.println(wordsofs[50]);
+		
+		for(int i=0; i<wordsofs.length; i++) {
+			System.out.println(wordsofs[i]);
+			
+		}
+		
+		
+	
 	}
 
 }
