@@ -12,6 +12,7 @@ public class Basics {
 		 * Code Indentation - Ctrl+A then Ctrl+I 
 		 * Run Java Application - Click on Run button or Right click on code -> Run As -> Java Application or Ctrl+F11
 		 */	
+		System.out.println("Welcome to Core Java..!");
 	
 	}
 
