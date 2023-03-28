@@ -42,7 +42,6 @@ public class MyContactForm {
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver;","./JavaSelenium/drivers/chromedriver.exe");
-		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		driver=new ChromeDriver(options);
