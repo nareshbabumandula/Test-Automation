@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 
 public class MyContactForm {
@@ -40,8 +41,10 @@ public class MyContactForm {
 	
 	@BeforeClass
 	public void beforeClass() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver;","./JavaSelenium/drivers");
-		driver=new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver;","./JavaSelenium/drivers/chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		driver=new ChromeDriver(options);
 		driver.get("https://www.mycontactform.com/");
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
