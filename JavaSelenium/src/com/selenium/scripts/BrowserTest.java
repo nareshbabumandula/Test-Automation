@@ -1,7 +1,10 @@
 package com.selenium.scripts;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -53,6 +56,10 @@ public class BrowserTest {
 			Thread.sleep(1000);
 			String mainwindow = driver.getWindowHandle();
 			System.out.println("Session ID is : " + mainwindow);
+			
+			List<WebElement> tabs = driver.findElements(By.xpath("//div[@id='header']/ul/li/a"));
+			tabs.forEach(tab->System.out.println(tab.getText()));
+						
 			System.out.println(driver.getPageSource());
 			driver.switchTo().newWindow(WindowType.WINDOW);
 			driver.navigate().to("https://www.firstcry.com/");
