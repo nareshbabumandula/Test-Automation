@@ -39,7 +39,7 @@ public class BrowserTest {
 
 	@Test
 	public void browserMethods() throws InterruptedException {
-		
+
 		try {
 			driver.manage().window().maximize();
 			System.out.println("Browser title is : " + driver.getTitle());
@@ -56,10 +56,10 @@ public class BrowserTest {
 			Thread.sleep(1000);
 			String mainwindow = driver.getWindowHandle();
 			System.out.println("Session ID is : " + mainwindow);
-			
+
 			List<WebElement> tabs = driver.findElements(By.xpath("//div[@id='header']/ul/li/a"));
 			tabs.forEach(tab->System.out.println(tab.getText()));
-						
+
 			System.out.println(driver.getPageSource());
 			driver.switchTo().newWindow(WindowType.WINDOW);
 			driver.navigate().to("https://www.firstcry.com/");
