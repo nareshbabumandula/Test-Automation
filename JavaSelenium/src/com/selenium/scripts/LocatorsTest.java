@@ -114,6 +114,12 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).sendKeys("Keerthana");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).clear();
+		
+		// xpath  with contains text method
+		boolean bflag = driver.findElement(By.xpath("//label[contains(text(),'User Name:')]")).isDisplayed();
+		System.out.println("Display status of the username label is : " + bflag);
+		String usernamefield = driver.findElement(By.xpath("//label[contains(text(),'User Name:')]")).getText();
+		System.out.println("Field name for the username field is : " + usernamefield);
 
 		Thread.sleep(2000);
 		driver.quit();
