@@ -2,6 +2,7 @@ package com.selenium.scripts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -53,6 +54,14 @@ public class LocatorsTest {
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("input[id*='se']")).clear();
 
+		//obtain color in rgba
+		WebElement username = driver.findElement(By.cssSelector("input[id*='se']"));
+		String color = username.getCssValue("color");
+		System.out.println("Color value for the username field is : " +color);
+		
+		String font = username.getCssValue("font-size");
+		System.out.println("Font size value for the username field is : " +font);
+
 		// Linktext locator
 		driver.findElement(By.linkText("Sample Forms")).click();
 		Thread.sleep(1000);
@@ -76,6 +85,41 @@ public class LocatorsTest {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//fieldset/div/input")).clear();
 
+		// xpath with attributes
+		driver.findElement(By.xpath("//input[@id='user']")).sendKeys("Manoj");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='user']")).clear();
+
+		// xpath using starts-with
+		driver.findElement(By.xpath("//input[starts-with(@id,'use')]")).sendKeys("Praveen");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[starts-with(@id,'use')]")).clear();
+
+		// xpath using contains
+		driver.findElement(By.xpath("//input[contains(@id,'us')]")).sendKeys("Krishna");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[contains(@id,'us')]")).clear();
+
+		// xpath with and operator
+		driver.findElement(By.xpath("//input[@class='txt_log' and @name='pass']")).sendKeys("Anusha");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@class='txt_log' and @name='pass']")).clear();
+
+		// xpath with or operator
+		driver.findElement(By.xpath("//input[@id='user' or @name='user']")).sendKeys("Navneeth");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='user' or @name='user']")).clear();
+
+		// xpath with or operator using | symbol
+		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).sendKeys("Keerthana");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).clear();
+		
+		// xpath  with contains text method
+		boolean bflag = driver.findElement(By.xpath("//label[contains(text(),'User Name:')]")).isDisplayed();
+		System.out.println("Display status of the username label is : " + bflag);
+		String usernamefield = driver.findElement(By.xpath("//label[contains(text(),'User Name:')]")).getText();
+		System.out.println("Field name for the username field is : " + usernamefield);
 
 		Thread.sleep(2000);
 		driver.quit();
