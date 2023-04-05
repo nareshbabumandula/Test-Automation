@@ -33,6 +33,7 @@ public class BrowserTest {
 		System.out.println("successfully opend browser");
 	}
 	
+	
 	@BeforeClass
 	public void Openbrower() {
 		ChromeOptions options = new ChromeOptions();
