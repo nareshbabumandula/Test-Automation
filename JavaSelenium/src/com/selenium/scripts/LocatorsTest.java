@@ -54,11 +54,21 @@ public class LocatorsTest {
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("input[id*='se']")).clear();
 
+		// CSS Selector with absolute path
+		driver.findElement(By.cssSelector("html>body>div:nth-of-type(3)>div:nth-of-type(2)>div>form>fieldset>div>input[id='user']")).sendKeys("Arun");
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("html>body>div:nth-of-type(3)>div:nth-of-type(2)>div>form>fieldset>div>input[id='user']")).clear();
+
+		// CSS Selector with relative path
+		driver.findElement(By.cssSelector("form>fieldset>div>input[id='user']")).sendKeys("Shravan");
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("form>fieldset>div>input[id='user']")).clear();
+
 		//obtain color in rgba
 		WebElement username = driver.findElement(By.cssSelector("input[id*='se']"));
 		String color = username.getCssValue("color");
 		System.out.println("Color value for the username field is : " +color);
-		
+
 		String font = username.getCssValue("font-size");
 		System.out.println("Font size value for the username field is : " +font);
 
@@ -114,7 +124,7 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).sendKeys("Keerthana");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='user'] | //input[@name='user']")).clear();
-		
+
 		// xpath  with contains text method
 		boolean bflag = driver.findElement(By.xpath("//label[contains(text(),'User Name:')]")).isDisplayed();
 		System.out.println("Display status of the username label is : " + bflag);

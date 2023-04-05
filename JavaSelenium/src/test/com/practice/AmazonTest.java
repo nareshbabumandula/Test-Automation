@@ -1,21 +1,16 @@
 package test.com.practice;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 public class AmazonTest {
 	WebDriver browser;
@@ -93,7 +88,7 @@ public class AmazonTest {
 	@BeforeClass
 	public void beforeMethod() {
 		WebElement samplelink;
-	browser=new EdgeDriver();
+		browser=new EdgeDriver();
 		browser.get("https://www.amazon.in/");
 		browser.manage().window().maximize();
 		report = new ExtentReports("./ExtentReportResults.html");
