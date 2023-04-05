@@ -1,5 +1,7 @@
 package selenium.practice.testng;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -70,6 +72,7 @@ public class BrowserExtentReport {
 		System.setProperty("WebDriver.edge.driver", "./drivers/msedgedriver.exe");
 		driver = new EdgeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get("https://www.Myntra.com");
 		System.out.println(driver.getTitle());
 		System.out.println(driver.getCurrentUrl());
