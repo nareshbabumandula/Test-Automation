@@ -11,7 +11,6 @@ public class BrowserTest {
 
 	WebDriver driver;
 
-
 	@Test
 	public void BrowserMethod() throws InterruptedException {
 		driver.manage().window().maximize();
