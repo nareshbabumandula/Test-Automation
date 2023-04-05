@@ -40,7 +40,6 @@ public class BrowserTest {
 		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
 		driver = new ChromeDriver(options);
 		driver.get("https://www.mycontactform.com/");
-
 		System.out.println("open the browser");
 	} 
 
