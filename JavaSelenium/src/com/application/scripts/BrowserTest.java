@@ -31,8 +31,8 @@ public class BrowserTest {
 		System.out.println("session id"+mainWindow);
 		System.out.println(driver.getPageSource());
 		System.out.println("successfully opend browser");
-
 	}
+	
 	@BeforeClass
 	public void Openbrower() {
 		ChromeOptions options = new ChromeOptions();
