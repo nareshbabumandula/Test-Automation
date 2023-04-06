@@ -3,6 +3,7 @@ package selenium.practice.testng;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +13,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TabsAssignment {
-	
+
 	WebDriver driver;
-	
+
 	@Test
 	public void advLocatorsTest() throws InterruptedException {
 		driver.get("https://www.mycontactform.com/");
@@ -31,11 +32,23 @@ public class TabsAssignment {
 		Thread.sleep(2000);
 		List<WebElement> brandTabs = driver.findElements(By.xpath("//span[starts-with(text(),'Brands')]/parent::div/parent::div/ul/li"));
 		System.out.println();
+		driver.navigate().refresh();
 		System.out.println("The Brand Names are : ");
-		for(WebElement menu : brandTabs) {
-			System.out.println(menu.getText());
+		try {
+
+			for(WebElement menu : brandTabs) {
+				System.out.println(menu.getText());
+			}
+		}
+		catch(StaleElementReferenceException e) {
+			//System.out.println(e.getMessage());
+			brandTabs = driver.findElements(By.xpath("//*[@id='s-refinements']/div[5]/ul/li"));
+			for(WebElement tabsMenu : brandTabs) {
+				System.out.println(tabsMenu.getText()+" brand");
+			}
 		}
 	}
+
 	@BeforeClass
 	public void launchBrowser() {
 		System.setProperty("WebDriver.chrome.driver", "./drivers/chromedriver.exe");
