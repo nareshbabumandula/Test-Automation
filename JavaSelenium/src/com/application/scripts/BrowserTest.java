@@ -11,7 +11,6 @@ public class BrowserTest {
 
 	WebDriver driver;
 
-
 	@Test
 	public void BrowserMethod() throws InterruptedException {
 		driver.manage().window().maximize();
@@ -32,8 +31,8 @@ public class BrowserTest {
 		System.out.println("session id"+mainWindow);
 		System.out.println(driver.getPageSource());
 		System.out.println("successfully opend browser");
-
 	}
+		
 	@BeforeClass
 	public void Openbrower() {
 		ChromeOptions options = new ChromeOptions();
@@ -41,7 +40,6 @@ public class BrowserTest {
 		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
 		driver = new ChromeDriver(options);
 		driver.get("https://www.mycontactform.com/");
-
 		System.out.println("open the browser");
 	} 
 
