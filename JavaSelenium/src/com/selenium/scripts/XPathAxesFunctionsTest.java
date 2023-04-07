@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class XPathAssigments {
+public class XPathAxesFunctionsTest {
 
 	static WebDriver driver;
 
@@ -22,23 +22,15 @@ public class XPathAssigments {
 		driver.get("https://www.mycontactform.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-		List<WebElement> tabs = driver.findElements(By.xpath("//div[@id='header']/ul/li"));
 		
-		for (WebElement menutab : tabs) {
-			System.out.println(menutab.getText());
-		}
-				
-		Thread.sleep(2000);
+		// ancestor
+		String value = driver.findElement(By.xpath("//input[@id='user']/ancestor::div")).getAttribute("id");
+		System.out.println(value);
 		
-		driver.navigate().to("https://www.amazon.in/");
-		driver.navigate().refresh();
+		// descendant
+		driver.findElement(By.xpath("//div[@id='content_wrapper']/descendant::input[@id='user']")).sendKeys("testuser");
+		
 		Thread.sleep(2000);
-		driver.findElement(By.linkText("Mobiles")).click();
-		List<WebElement> brands = driver.findElements(By.xpath("//span[starts-with(text(), 'Brands')]/parent::div/parent::div/ul/li/span/a"));
-		for (WebElement menutab : tabs) {
-			System.out.println(menutab.getText());
-		}
 		driver.quit();
 	}
 
