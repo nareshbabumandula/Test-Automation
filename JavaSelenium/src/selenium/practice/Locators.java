@@ -19,7 +19,7 @@ public class Locators {
 	@BeforeClass
 	public void lauchBrowser() {
 		
-		System.setProperty("webdriver.chromedriver", "D:\\New folder");
+		System.setProperty("webdriver.chromedriver", "./drivers/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(options);
@@ -62,7 +62,10 @@ public class Locators {
 		driver.findElement(By.className("a-button-input")).click();
 		// css
 		String errormsg = driver.findElement(By.cssSelector("h4[class=a-alert-heading]")).getText();
+		
 		System.out.println(errormsg);
+		
+	
 	}
 	@AfterClass
 	public void closeBroswe() {
