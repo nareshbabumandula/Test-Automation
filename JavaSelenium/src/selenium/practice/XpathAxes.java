@@ -13,8 +13,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 public class XpathAxes {
-	
-     WebDriver driver;
+
+	WebDriver driver;
 
 	@BeforeClass
 	public void lauchBrowser() {
@@ -31,7 +31,7 @@ public class XpathAxes {
 
 	@Test
 	public void search() {
-		
+
 		//self
 		driver.findElement(By.xpath("//a[contains(text(),'Sample')]/self::a")).click();
 		//Ancestor
@@ -55,6 +55,6 @@ public class XpathAxes {
 		//preceding-sibiling
 		driver.findElement(By.xpath("//input[@name='checkbox6[]'][2]/preceding-sibling::input[@type='checkbox']")).click();
 		driver.quit();
-		
+
 	}
 }
