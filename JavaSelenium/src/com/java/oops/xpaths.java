@@ -83,7 +83,6 @@ public class xpaths {
 			test.log(LogStatus.FAIL, "Test Passed");
 		}
 	}
-
 	@BeforeClass
 	public void BrowserLaunching() {
 		ChromeOptions options=new ChromeOptions();
@@ -93,7 +92,6 @@ public class xpaths {
 		driver.get("https://www.ajio.com/");
 		report=new ExtentReports("./ExtentReportResults.html");
 		test=report.startTest("xpath axes");
-
 	}
 
 	@AfterClass
