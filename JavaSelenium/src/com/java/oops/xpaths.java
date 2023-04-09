@@ -33,62 +33,57 @@ public class xpaths {
 			driver.findElement(By.xpath("//div[@class='header-right']//child::li")).click();
 			Thread.sleep(2000);
 			driver.navigate().back();
-		
+
 			//xpath-Parent Axes
 			List<WebElement> menubar=driver.findElements(By.xpath("//a[@class=' alignTag']//parent::li//parent::ul"));
 			menubar.forEach(tab->System.out.println(tab.getText()));
-			
+
 			//xpath-Ancestor Axes
 			List<WebElement> names=driver.findElements(By.xpath("//div[@class='popup-blk wishlist-blk-icon']//ancestor::div[2]"));
 			names.forEach(tab->System.out.println(tab.getText()));
-		
+
 			//xpath-self axes
 			driver.findElement(By.xpath("//input[@name='searchVal']//self::input")).sendKeys("bags");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//input[@name='searchVal']//self::input")).clear();
-			
+
 			//xpath-Ancestor-or-self Axes 
 			driver.findElement(By.xpath("//a[@title='Lamp, Diyas & Candle']//ancestor-or-self::li")).click();
 			Thread.sleep(2000);
 			driver.navigate().back();
-			
+
 			//xpath-Descendant axes
 			String name=driver.findElement(By.xpath("//ul[@class='level-first false']//descendant::a[@title='WOMEN']")).getText();
 			System.out.println("title:"+name);
-			
+
 			//xpath-descendant axes and following axes
 			driver.findElement(By.xpath("//div[@class='scb']//descendant-or-self::input")).sendKeys("shoes");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//div[@class='scb']//following::input")).clear();
-			
+
 			//xpath-following-sibling axes
 			driver.findElement(By.xpath("//li[@data-test='li-WOMEN']//following-sibling::li[@data-test='li-KIDS']")).click();
 			Thread.sleep(2000);
 			driver.navigate().back();
-			
+
 			driver.switchTo().newWindow(WindowType.WINDOW);
 			driver.navigate().to("https://www.facebook.com/");
-			
+
 			//xpath-preceding axes and attribute axes
 			driver.findElement(By.xpath("//input[@id='pass']//preceding::input[1]")).sendKeys("murthy");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//input[attribute::id='email']")).clear();
-			
+
 			//xpath-preceding-sibling axes
 			driver.findElement(By.xpath("//div[@class='_6ltj']//preceding-sibling::div[1]")).click();
 			test.log(LogStatus.PASS, "Test Passed");
-			
-		
-			
+
 		}
 		catch(Exception e) {
 			test.log(LogStatus.FAIL, "Test Passed");
 		}
-
-
 	}
-	
-	
+
 	@BeforeClass
 	public void BrowserLaunching() {
 		ChromeOptions options=new ChromeOptions();
