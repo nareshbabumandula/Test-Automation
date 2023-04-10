@@ -36,8 +36,7 @@ public class Locators {
 		// Using # write CSS locator with ID
 		driver.findElement(By.cssSelector("span#nav-search-submit-text")).click();
 		// Write XPath using contains function
-		driver.findElement(By.xpath("//span[contains(text(),'Acer 2023 Newest Aspire 5 15.6\" FHD IPS Slim Lapto')]"))
-		.click();
+		driver.findElement(By.xpath("//span[contains(text(),'Acer 2023 Newest Aspire 5 15.6\" FHD IPS Slim Lapto')]")).click();
 		// Using . write CSS locator with Class
 		driver.findElement(By.cssSelector("input[name='submit.addToCart']")).click();
 		// Write xpath using contains function

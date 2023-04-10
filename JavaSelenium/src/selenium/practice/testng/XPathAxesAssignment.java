@@ -12,7 +12,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class XPathAxesFunctionsAssignment {
+public class XPathAxesAssignment {
 
 	static ExtentReports report;
 	static ExtentTest test;
