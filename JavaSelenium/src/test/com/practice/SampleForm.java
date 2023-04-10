@@ -78,7 +78,7 @@ public class SampleForm {
 	@BeforeClass
 	public void beforeClass() {
 		WebElement samplelink;
-		System.setProperty("WebDriver.chrome.driver", "./drivers/chromedriver.exe");
+		System.setProperty("WebDriver.edge.driver","./drivers/msedgedriver.exe");
 		EdgeOptions opt = new EdgeOptions();
 		opt.addArguments("--remote-allow-origins=*");
 		driver = new EdgeDriver(opt);
