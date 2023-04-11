@@ -13,7 +13,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class cssSelectorAssignment {
+public class CSSSelectorTest{
 
 	ExtentReports report;
 	ExtentTest test;
@@ -21,7 +21,7 @@ public class cssSelectorAssignment {
 	WebDriver driver;
 
 	@Test
-	public void fillingDetails() throws InterruptedException {
+	public void submitSampleEmailandContactForms() throws InterruptedException {
 		try {
 			//CSS Selector using Tag Name
 			driver.findElement(By.cssSelector("input")).sendKeys("TestUser");
