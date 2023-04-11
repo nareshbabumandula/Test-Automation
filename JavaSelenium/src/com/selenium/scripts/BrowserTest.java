@@ -1,22 +1,21 @@
 package com.selenium.scripts;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.model.Report;
+
 import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 
 public class BrowserTest {
-	static com.relevantcodes.extentreports.ExtentTest test;
+	static  ExtentTest test;
 	static ExtentReports report;
 	WebDriver driver;
 	@BeforeClass
@@ -49,11 +48,11 @@ public class BrowserTest {
 			driver.switchTo().newWindow(WindowType.WINDOW);
 			driver.navigate().to("https://www.firstcry.com/");
 			driver.findElement(By.id("search_box")).clear();
-			driver.findElement(By.id("search_box")).sendKeys("watch");
+			driver.findElement(By.id("search_box")).sendKeys("pampers");
 			driver.findElement(By.className("search-button")).click();
 			System.out.println("Perform the task");
-			String heading = driver.findElement(By.xpath("//h1[contains(text(),'watch')]")).getText();
-			if(heading.contains("watch")) {
+			String heading = driver.findElement(By.xpath("//h1[contains(text(),'Pampers')]")).getText();
+			if(heading.contains("Pampers")) {
 				test.log(LogStatus.PASS,"successfully");
 			}
 		}catch(Exception e)
