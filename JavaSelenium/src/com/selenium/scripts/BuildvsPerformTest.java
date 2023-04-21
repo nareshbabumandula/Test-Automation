@@ -1,14 +1,15 @@
 package com.selenium.scripts;
 
-import java.util.List;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class DragDropTest {
+public class BuildvsPerformTest {
 
 	static ExtentTest test;
 	static ExtentReports report;
@@ -32,8 +33,9 @@ public class DragDropTest {
 		options.addArguments("--remote-allow-origins=*");
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver(options);
-		driver.get("https://jqueryui.com/");
+		driver.get("http://www.edureka.co/");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		System.out.println("Launched the browser..!");
 		// Extent Reports
 		report = new ExtentReports("./ExtentReportResults.html");
@@ -44,38 +46,29 @@ public class DragDropTest {
 	public void draganddropMethods() throws InterruptedException {
 		boolean bFlag=false;
 		try {
-			Actions action = new Actions(driver);
-			Thread.sleep(2000);
-			action.contextClick(driver.findElement(By.linkText("JS Foundation"))).perform(); // Right Click
-			driver.findElement(By.linkText("Draggable")).click();
-			//driver.switchTo().frame(0); // Switch to frame based on frame index
-			driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
-			WebElement source = driver.findElement(By.id("draggable"));
-			action.dragAndDropBy(source, 390, 100).perform();
-		    driver.switchTo().defaultContent(); // Switch out from the frame
-			Thread.sleep(4000);
-			driver.findElement(By.linkText("Droppable")).click();
-			driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
-			
-			WebElement src = driver.findElement(By.id("draggable"));
-			WebElement dest = driver.findElement(By.id("droppable"));
-			action.dragAndDrop(src, dest).perform();
-			// Hard Assertion
-			//Assert.assertEquals(dest.getText(), "Dropped", "Failed to drop the webelement");
-			SoftAssert softassert = new SoftAssert();
-			// Soft Assertion
-			softassert.assertEquals(dest.getText(), "Dropped", "Failed to drop the webelement");
-			bFlag=true;
-			if(bFlag){
-				test.log(LogStatus.PASS, "Successfully performed drag and drop operations");
-				System.out.println("Successfully performed drag and drop operations");
+			/*build() method in Actions class is use to create chain of action or operation you want to perform.
+			  perform() this method in Actions Class is use to execute chain of action which are build using Action build method.
+			  build().perform() = create chain of actions + execute
+		    */
+			Actions builder = new Actions(driver);
+			driver.findElement(By.xpath("//input[@placeholder='Enter Course, Category or keyword']")).click();
+			WebElement act = driver.findElement(By.id("search-input"));
+			Action seriesOfActions = builder.sendKeys(act, "Selenium").keyDown(act, Keys.SHIFT).build();
+			Thread.sleep(3000);
+			seriesOfActions.perform();
+			Thread.sleep(3000);
+			String title = driver.getTitle();
+	
+			if(title.contains("Selenium")){
+				test.log(LogStatus.PASS, "Successfully built and performed chain of actions");
+				System.out.println("Successfully built and performed chain of actions");
 				bFlag=true;	
 			}
 		} catch (Exception e) {
 			String message = e.getMessage();
 			String errorMsg[] = message.split("}");
-			test.log(LogStatus.FAIL, "Failed to peform drag and drop since - " + errorMsg[0]);
-			System.out.println("Failed to perform drag and drop since - " + errorMsg[0]);
+			test.log(LogStatus.FAIL, "Failed to build and performed chain of actions since - " + errorMsg[0]);
+			System.out.println("built and performed chain of actions since - " + errorMsg[0]);
 		}finally {
 			if (bFlag) {
 				test.log(LogStatus.PASS, "Test Case Executed Successfully..!");
