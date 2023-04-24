@@ -4,6 +4,10 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.testng.annotations.BeforeClass;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -41,14 +45,15 @@ public class BaseTestAnnotations {
 
 	@AfterTest
 	public void closeBrowser() {
-		driver.quit();
+		report.endTest(test);
+		report.flush();
+		//driver.quit();
 		System.out.println("AfterTest : CLosed the Edge Browser.");
 	}
 
 	@AfterSuite
-	public void teardown() {
-		report.endTest(test);
-		report.flush();
+	public void teardown() throws Exception {
+		Desktop.getDesktop().browse(new File("ExtentReportResults.html").toURI());
 		System.out.println("AfterSuite : Extent Report has generated.");
 	}
 
