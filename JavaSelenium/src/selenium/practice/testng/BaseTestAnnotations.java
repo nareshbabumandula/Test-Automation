@@ -47,7 +47,7 @@ public class BaseTestAnnotations {
 	public void closeBrowser() {
 		report.endTest(test);
 		report.flush();
-		//driver.quit();
+		driver.quit();
 		System.out.println("AfterTest : CLosed the Edge Browser.");
 	}
 

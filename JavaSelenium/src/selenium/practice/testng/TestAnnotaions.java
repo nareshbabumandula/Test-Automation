@@ -28,19 +28,33 @@ import org.testng.annotations.BeforeClass;
 
 public class TestAnnotaions extends BaseTestAnnotations {
 
-	@BeforeMethod
-	public void beforeMethod() throws Exception {
-		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone14 pro");
-		driver.findElement(By.cssSelector("input#nav-search-submit-button")).click();
-		String e =driver.findElement(By.xpath("//span[contains(text(),'iphone14 pro')]")).getText();
-		if(e.contains("iphone14")) {
-			test.log(LogStatus.PASS,"Successfully searched Iphone 14 pro.");  
-		}else {
-			test.log(LogStatus.FAIL,"Failed to search Iphone 14 pro.");
-		}
-		System.out.println("beforeMethod.");
+	@BeforeClass
+	public void accessSiteAndLogin() {
+		driver.get("https://www.Amazon.in");
+		System.out.println("BeforeClass : Successfully accessed and logged into the site.");
 	}
 
+	@BeforeMethod
+	public void beforeMethod() throws Exception {
+		String e;
+		try {
+			driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone14 pro");
+			driver.findElement(By.cssSelector("input#nav-search-submit-button")).click();
+			e = driver.findElement(By.xpath("//span[contains(text(),'iphone14 pro')]")).getText();
+			System.out.println(e);
+			if(e.contains("iphone")) {
+				test.log(LogStatus.PASS,"Successfully searched Iphone 14 pro."); 
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			test.log(LogStatus.FAIL,"Failed to search Iphone 14 pro.");
+		} 
+
+
+		System.out.println("BeforeMethod : Successfully searched the product.");
+	}
+
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testMethod() throws IOException, Exception {
 		String parentTab = driver.getWindowHandle();
@@ -84,22 +98,16 @@ public class TestAnnotaions extends BaseTestAnnotations {
 		boolean image = false;
 		driver.findElement(By.id("add-to-cart-button")).click();
 		driver.findElement(By.xpath("//form/span/span/input[@class='a-button-input']")).click();
-	    image = driver.findElement(By.className("sc-product-image")).isDisplayed();
+		image = driver.findElement(By.className("sc-product-image")).isDisplayed();
+		//Assertion
 		Assert.assertEquals(image, true, "Failed adding to cart.");
-		test.log(LogStatus.PASS, "Successfully iphone14 pro added to cart.");
+		test.log(LogStatus.PASS, "Successfully added iphone14 pro to cart.");
 		System.out.println("afterMethod.");
-		//test.log(LogStatus.PASS,"Successfully executed AfterMethod.");
-	}
-
-	@BeforeClass
-	public void accessSite() {
-		driver.get("https://www.Amazon.in");
-		System.out.println("beforeTest.");
 	}
 
 	@AfterClass
-	public void afterTest() {
-		System.out.println("afterTest.");
+	public void logout() {
+		System.out.println("AfterClass : Successfully logged in.");
 		//test.log(LogStatus.PASS,"Successfully executed AfterTest.");
 	}
 
