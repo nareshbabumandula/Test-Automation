@@ -30,7 +30,18 @@ public class TestAnnotaions extends BaseTestAnnotations {
 
 	@BeforeClass
 	public void accessSiteAndLogin() {
-		driver.get("https://www.Amazon.in");
+		try {
+			driver.get("https://www.Amazon.in");
+			String actualTitle = driver.getTitle();
+			System.out.println(actualTitle);
+			String expectedTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
+			if(actualTitle.equals(expectedTitle)) {
+				test.log(LogStatus.PASS,"Successfully accessed the site.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			test.log(LogStatus.FAIL,"Failed to access the site.");
+		}
 		System.out.println("BeforeClass : Successfully accessed and logged into the site.");
 	}
 
@@ -42,15 +53,13 @@ public class TestAnnotaions extends BaseTestAnnotations {
 			driver.findElement(By.cssSelector("input#nav-search-submit-button")).click();
 			e = driver.findElement(By.xpath("//span[contains(text(),'iphone14 pro')]")).getText();
 			System.out.println(e);
-			if(e.contains("iphone")) {
+			if(e.contains("iphone14")) {
 				test.log(LogStatus.PASS,"Successfully searched Iphone 14 pro."); 
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			test.log(LogStatus.FAIL,"Failed to search Iphone 14 pro.");
 		} 
-
-
 		System.out.println("BeforeMethod : Successfully searched the product.");
 	}
 
