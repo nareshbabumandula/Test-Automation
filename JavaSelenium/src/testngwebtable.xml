@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-	<parameter name="firstname" value="Jemma"/>
+	<parameter name="firstname" value="Michael"/>
   <test name="Test">
     <classes>
       <class name="mypractice.WebtableTest"/>

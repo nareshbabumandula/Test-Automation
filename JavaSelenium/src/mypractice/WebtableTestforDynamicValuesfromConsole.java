@@ -1,3 +1,4 @@
+//Receiving id as input from console to print corresponding table
 package mypractice;
 
 import java.util.List;

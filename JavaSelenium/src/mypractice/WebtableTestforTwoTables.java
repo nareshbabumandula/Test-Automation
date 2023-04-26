@@ -1,3 +1,4 @@
+//Printing two webtable values
 package mypractice;
 
 import java.util.List;
