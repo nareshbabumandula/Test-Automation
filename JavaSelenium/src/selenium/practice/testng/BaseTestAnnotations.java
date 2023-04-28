@@ -2,16 +2,11 @@ package selenium.practice.testng;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import org.testng.annotations.BeforeClass;
-
 import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.testng.annotations.AfterClass;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterSuite;
@@ -34,13 +29,13 @@ public class BaseTestAnnotations {
 
 	@BeforeTest
 	public void launchBrowser() {
-		System.setProperty("WebDriver.edgedriver.driver","./drivers/msedgedriver.exe");
-		EdgeOptions option = new EdgeOptions();
+		System.setProperty("WebDriver.chromedriver.driver","./drivers/chromedriver.exe");
+		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--remote-allow-origins=*");
-		driver = new EdgeDriver(option);
+		driver = new ChromeDriver(option);
 		driver.manage().window().maximize();
 		//driver.get("https://www.google.com");
-		System.out.println("BeforeTest : Launched the Edge Browser.");
+		System.out.println("BeforeTest : Launched the Chrome Browser.");
 	}
 
 	@AfterTest
@@ -48,7 +43,7 @@ public class BaseTestAnnotations {
 		report.endTest(test);
 		report.flush();
 		driver.quit();
-		System.out.println("AfterTest : CLosed the Edge Browser.");
+		System.out.println("AfterTest : CLosed the Chrome Browser.");
 	}
 
 	@AfterSuite

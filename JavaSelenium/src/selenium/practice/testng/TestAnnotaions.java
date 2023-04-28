@@ -11,6 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +21,7 @@ import org.testng.annotations.AfterMethod;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -68,28 +72,29 @@ public class TestAnnotaions extends BaseTestAnnotations {
 	public void testMethod() throws IOException, Exception {
 		String parentTab = driver.getWindowHandle();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'Apple iPhone 14 Pro (128 GB) - Gold')]"));
+		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'(128 GB) - Gold')]"));
 		//JavascriptExecutor Class
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();",element);
+		//Multiple Window/Tab Handling
 		Set<String> WindowHandles = driver.getWindowHandles();
 		for(String tab : WindowHandles) {
 			if(!tab.equals(parentTab)) {
 				driver.switchTo().window(tab);
 				//Actions Class
 				Actions action = new Actions(driver);
-				WebElement purple = driver.findElement(By.xpath("//input[@name='0']"));
+				WebElement purple = driver.findElement(By.cssSelector("input[name='0'][aria-labelledby='color_name_0-announce']"));
 				action.moveToElement(purple).perform();
-				WebElement silver = driver.findElement(By.xpath("//input[@name='2']"));
+				WebElement silver = driver.findElement(By.cssSelector("img[alt='Silver']"));
 				action.moveToElement(silver).perform();
-				WebElement black = driver.findElement(By.xpath("//input[@name='3']"));
+				WebElement black = driver.findElement(By.cssSelector("img[alt='Space Black']"));
 				action.moveToElement(black).perform();
 				js.executeScript("arguments[0].click();",purple);
-				WebElement storagetb = driver.findElement(By.xpath("//input[@name='0'][@aria-labelledby='size_name_0-announce']"));
+				WebElement storagetb = driver.findElement(By.cssSelector("input[aria-labelledby='size_name_0-announce']"));
 				action.moveToElement(storagetb).perform();
-				WebElement storage = driver.findElement(By.xpath("//input[@name='3'][@aria-labelledby='size_name_3-announce']"));
+				WebElement storage = driver.findElement(By.cssSelector("span[id='size_name_3']"));
 				action.moveToElement(storage).perform();
-				storage.click();
+				js.executeScript("arguments[0].click();",storage);
 				boolean finalVariant = driver.findElement(By.cssSelector("span#productTitle")).isDisplayed();
 				if(finalVariant) {
 					System.out.println("Successfully finalised the iphone14 pro 512GB Deep Purple colour.");
@@ -103,20 +108,42 @@ public class TestAnnotaions extends BaseTestAnnotations {
 	}
 
 	@AfterMethod
-	public void addtoCart() {
+	public void addtoCart() throws InterruptedException {
 		boolean image = false;
-		driver.findElement(By.id("add-to-cart-button")).click();
-		driver.findElement(By.xpath("//form/span/span/input[@class='a-button-input']")).click();
-		image = driver.findElement(By.className("sc-product-image")).isDisplayed();
-		//Assertion
-		Assert.assertEquals(image, true, "Failed adding to cart.");
-		test.log(LogStatus.PASS, "Successfully added iphone14 pro to cart.");
-		System.out.println("afterMethod.");
+		try {
+			Thread.sleep(2000);
+			driver.findElement(By.id("add-to-cart-button")).click();
+			driver.findElement(By.xpath("//form/span/span/input[@class='a-button-input']")).click();
+			image = driver.findElement(By.className("sc-product-image")).isDisplayed();
+			//Assertion
+			Assert.assertEquals(image, true, "Failed to add in cart."); 
+			test.log(LogStatus.PASS, "Successfully added iphone14 pro to cart.");
+			System.out.println("afterMethod : Successfully added iphone14 pro to cart.");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			test.log(LogStatus.FAIL,"Failed to add in cart.");
+		}
+		//DropBox
+		boolean quantity = false;
+		try {
+			quantity = true;
+			WebElement element = driver.findElement(By.xpath("//select[@name='quantity']"));
+			Select select = new Select(element);
+			select.selectByIndex(3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(quantity) {
+				test.log(LogStatus.PASS,"Successfully added quantity.");
+			}else {
+				test.log(LogStatus.FAIL,"Failed to add quantity.");
+			}
+		}
 	}
 
 	@AfterClass
 	public void logout() {
-		System.out.println("AfterClass : Successfully logged in.");
+		System.out.println("AfterClass : Successfully logged out.");
 		//test.log(LogStatus.PASS,"Successfully executed AfterTest.");
 	}
 
