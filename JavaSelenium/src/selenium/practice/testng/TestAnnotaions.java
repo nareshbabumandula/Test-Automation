@@ -92,7 +92,7 @@ public class TestAnnotaions extends BaseTestAnnotations {
 				js.executeScript("arguments[0].click();",purple);
 				WebElement storagetb = driver.findElement(By.cssSelector("input[aria-labelledby='size_name_0-announce']"));
 				action.moveToElement(storagetb).perform();
-				WebElement storage = driver.findElement(By.cssSelector("span[id='size_name_3']"));
+				WebElement storage = driver.findElement(By.cssSelector("span[id='size_name_2']"));
 				action.moveToElement(storage).perform();
 				js.executeScript("arguments[0].click();",storage);
 				boolean finalVariant = driver.findElement(By.cssSelector("span#productTitle")).isDisplayed();
