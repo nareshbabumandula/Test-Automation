@@ -97,7 +97,7 @@ public class TestAnnotaions extends BaseTestAnnotations {
 				js.executeScript("arguments[0].click();",storage);
 				boolean finalVariant = driver.findElement(By.cssSelector("span#productTitle")).isDisplayed();
 				if(finalVariant) {
-					System.out.println("Successfully finalised the iphone14 pro 512GB Deep Purple colour.");
+					System.out.println("Successfully finalised the iphone14 pro 256GB Deep Purple colour.");
 					test.log(LogStatus.PASS,"Successfully finalised the variant of Iphone 14 pro.");  
 				}else {
 					test.log(LogStatus.FAIL,"Failed to finalise the variant of Iphone 14 pro.");
