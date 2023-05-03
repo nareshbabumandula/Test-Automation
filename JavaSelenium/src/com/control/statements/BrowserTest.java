@@ -1,8 +1,6 @@
 package com.control.statements;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,7 +13,7 @@ public class BrowserTest extends Utility{
 	WebDriver driver;
 
 	void accessSite() throws IOException, InterruptedException {
-
+	
 		String browser = ReadProperty("browserType");  
 		String url = ReadProperty("url");
 		switch (browser) {

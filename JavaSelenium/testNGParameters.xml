@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="false" name="Suite">
+	<parameter name="firstname" value="Michael"/>
+  <test name="Test">
+    <classes>
+      <class name="com.selenium.scripts.WebTableTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
