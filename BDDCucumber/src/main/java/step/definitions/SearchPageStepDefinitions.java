@@ -1,0 +1,102 @@
+package step.definitions;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class SearchPageStepDefinitions{
+
+
+	WebDriver driver;
+	static ExtentTest test;
+	static ExtentReports report;
+	
+
+	@Given("^i access amazon portal$")
+	public void i_access_amazon_portal() throws Throwable {
+		System.setProperty("webdriver.chrome.driver", "./browsers/chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		driver = new ChromeDriver(options);
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		System.out.println("Accessed Amazon portal");
+		
+		System.out.println("Launched the browser..!");
+		// Extent Reports
+		report = new ExtentReports("./target/ExtentReport/ExtentResults.html");
+		test = report.startTest("TC01");
+
+	}
+
+	@When("^i enter any valid product$")
+	public void i_enter_any_valid_product() throws Throwable {
+		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone");
+		System.out.println("Entered product name in search text field");
+	}
+
+	@And("^i click on search button$")
+	public void i_click_on_search_button() throws Throwable {
+		driver.findElement(By.id("nav-search-submit-button")).click();
+		System.out.println("Clicked on search button");
+	}
+
+	@Then("^it should display the appropriate product details$")
+	public void it_should_display_the_appropriate_product_details() throws Throwable {
+		String title = driver.getTitle();
+		if (title.contains("iphone")) {
+			test.log(LogStatus.PASS, "Successfully verified the search results..!");
+			System.out.println("Successfully verified the search results..!");
+		} else {
+			test.log(LogStatus.FAIL, "Failed to display the appropriate search results..!");
+			System.out.println("Failed to display the appropriate search results..!");
+		}
+		
+		report.endTest(test);
+		report.flush();
+		driver.quit();
+		System.out.println("Closed the browser..!");
+		driver.quit();
+
+	}
+
+
+	@When("i enter any invalid product")
+	public void i_enter_any_invalid_product() {
+		System.out.println("Entered a invalid product name");
+	}
+
+	@When("i enter any product name with a partial text {string}")
+	public void i_enter_any_product_name_with_a_partial_text(String sText) {
+		System.out.println("Entered the product name with the partial text : " + sText);
+	}
+
+	@When("i enter any product name with a partial text as {string}")
+	public void i_enter_any_product_name_with_a_partial_text_as(String string) {
+		driver.findElement(By.id("twotabsearchtextbox")).sendKeys(string);
+		System.out.println("Entered the product name with the partial text : " + string);
+	}
+
+	@When("i enter any product name with a partial text")
+	public void i_enter_any_product_name_with_a_partial_text(io.cucumber.datatable.DataTable dataTable) {
+		List<String> data = dataTable.asList();
+		System.out.println("Entered the product name : "  + data.get(0));
+		System.out.println("Entered the product name : "  + data.get(1));
+		System.out.println("Entered the product name : "  + data.get(2));
+	}
+
+}
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-05-03T08:38:20 IST" name="Default suite" finished-at="2023-05-03T08:38:33 IST" duration-ms="12712">
+    <groups>
+      <group name="smoke">
+        <method signature="TakeScreenShotTest.captureScreenshot()[pri:0, instance:com.selenium.scripts.TakeScreenShotTest@76908cc0]" name="captureScreenshot" class="com.selenium.scripts.TakeScreenShotTest"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test started-at="2023-05-03T08:38:20 IST" name="Default test" finished-at="2023-05-03T08:38:33 IST" duration-ms="12712">
+      <class name="com.selenium.scripts.TakeScreenShotTest">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.selenium.scripts.TakeScreenShotTest@76908cc0]" started-at="2023-05-03T08:38:20 IST" name="launchBrowser" finished-at="2023-05-03T08:38:28 IST" duration-ms="8422" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="captureScreenshot()[pri:0, instance:com.selenium.scripts.TakeScreenShotTest@76908cc0]" started-at="2023-05-03T08:38:29 IST" name="captureScreenshot" finished-at="2023-05-03T08:38:29 IST" duration-ms="259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- captureScreenshot -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.selenium.scripts.TakeScreenShotTest@76908cc0]" started-at="2023-05-03T08:38:29 IST" name="closeBrowser" finished-at="2023-05-03T08:38:33 IST" duration-ms="3982" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.selenium.scripts.TakeScreenShotTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

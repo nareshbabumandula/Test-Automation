@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.object.repository.Loginpage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -17,6 +18,7 @@ public class TextboxTest {
 
 	static ExtentTest test;
 	static ExtentReports report;
+	Loginpage lp;
 
 	WebDriver driver;
 
@@ -39,7 +41,8 @@ public class TextboxTest {
 		boolean bFlag=false;
 		try {
 			driver.manage().window().maximize();
-			WebElement username = driver.findElement(By.id("user"));
+			WebElement username = driver.findElement(By.id("user")); // hard coding
+
 			System.out.println(username.getAttribute("name"));
 			System.out.println(username.getAttribute("type"));
 			System.out.println(username.getAttribute("class"));
