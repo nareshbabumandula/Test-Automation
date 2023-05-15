@@ -7,34 +7,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import com.main.WebDriverSingleton;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.Assert;
 
 public class SearchPageStepDefinitions{
 
-
-	WebDriver driver;
 	static ExtentTest test;
 	static ExtentReports report;
-	
-
+	WebDriver driver;
+		
 	@Given("^i access amazon portal$")
 	public void i_access_amazon_portal() throws Throwable {
-		System.setProperty("webdriver.chrome.driver", "./browsers/chromedriver.exe");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver(options);
+		driver = WebDriverSingleton.getDriver();
 		driver.get("https://www.amazon.in/");
 		driver.manage().window().maximize();
 		System.out.println("Accessed Amazon portal");
-		
-		System.out.println("Launched the browser..!");
+
 		// Extent Reports
 		report = new ExtentReports("./target/ExtentReport/ExtentResults.html");
 		test = report.startTest("TC01");
@@ -68,8 +65,6 @@ public class SearchPageStepDefinitions{
 		report.flush();
 		driver.quit();
 		System.out.println("Closed the browser..!");
-		driver.quit();
-
 	}
 
 
@@ -95,6 +90,17 @@ public class SearchPageStepDefinitions{
 		System.out.println("Entered the product name : "  + data.get(0));
 		System.out.println("Entered the product name : "  + data.get(1));
 		System.out.println("Entered the product name : "  + data.get(2));
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Then("I should see amazon logo displayed")
+	public void verifyLogo() {
+	    boolean bFlag = driver.findElement(By.id("nav-logo-sprites")).isDisplayed();
+	    Assert.assertTrue("Amazon logo image is not displayed", bFlag);
+	    test.log(LogStatus.PASS, "Amazon logo image is displayed..!");
+	    System.out.println("Amazon logo image is displayed..!");
+	    report.endTest(test);
+		report.flush();
 	}
 
 }
