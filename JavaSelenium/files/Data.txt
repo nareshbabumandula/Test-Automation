@@ -1,7 +1,10 @@
-hello
-world
-this
-is
-core
-java
-training
+ravi
+sai
+kiran
+teja
+hari
+priya
+srilatha
+triveni
+shalini
+ashwini

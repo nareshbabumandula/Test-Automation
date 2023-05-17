@@ -31,6 +31,6 @@ public class SingletonClass {
 		System.out.println(single1.hashCode());
 		System.out.println(single2.hashCode());
 		System.out.println(single3.hashCode());
-		
+
 	}  
 }  

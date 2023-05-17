@@ -95,12 +95,21 @@ public class SearchPageStepDefinitions{
 	@SuppressWarnings("deprecation")
 	@Then("I should see amazon logo displayed")
 	public void verifyLogo() {
-	    boolean bFlag = driver.findElement(By.id("nav-logo-sprites")).isDisplayed();
-	    Assert.assertTrue("Amazon logo image is not displayed", bFlag);
-	    test.log(LogStatus.PASS, "Amazon logo image is displayed..!");
-	    System.out.println("Amazon logo image is displayed..!");
-	    report.endTest(test);
-		report.flush();
+	    try {
+			boolean bFlag = driver.findElement(By.id("nav-logo-sprites")).isDisplayed();
+			Assert.assertTrue("Amazon logo image is not displayed", bFlag);
+			test.log(LogStatus.PASS, "Amazon logo image is displayed..!");
+			System.out.println("Amazon logo image is displayed..!");
+		} catch (Exception e) {
+			String asText[] = e.getMessage().split("}");
+			test.log(LogStatus.FAIL, "Amazon logo image is not displayed since - " +asText[0]);
+			System.out.println("Amazon logo image is not displayed..!");
+			e.printStackTrace();
+		}finally {
+			report.endTest(test);
+			report.flush();
+		}
+	    
 	}
 
 }

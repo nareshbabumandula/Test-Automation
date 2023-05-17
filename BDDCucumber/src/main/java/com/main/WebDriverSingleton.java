@@ -28,4 +28,8 @@ public class WebDriverSingleton {
         }
         return driver;
     }
+    
+    public static void main(String[] args) {
+    	
+    }
 }
