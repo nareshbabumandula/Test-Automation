@@ -21,7 +21,7 @@ When i enter any product name with a partial text "umbre"
 And i click on search button
 Then it should display the appropriate product details
 
-@smoke
+@smokeoutline
 Scenario Outline: verify the search functionality with a partial text
 When i enter any product name with a partial text as "<productname>"
 And i click on search button
