@@ -24,9 +24,9 @@ public class SearchPageStepDefinitions{
 	@Given("^i access amazon portal$")
 	public void i_access_amazon_portal() throws Throwable {
 		driver = WebDriverSingleton.getDriver();
-		driver.get("https://www.amazon.in/");
+		driver.get("https://www.primefaces.org/primereact-v5/#/datatable/selection/");
 		driver.manage().window().maximize();
-		System.out.println("Accessed Amazon portal");
+		System.out.println("Accessed primefaces portal");
 
 		// Extent Reports
 		report = new ExtentReports("./target/ExtentReport/ExtentResults.html");
@@ -36,10 +36,11 @@ public class SearchPageStepDefinitions{
 
 	@When("^i enter any valid product$")
 	public void i_enter_any_valid_product() throws Throwable {
-		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone");
-		System.out.println("Entered product name in search text field");
+		driver.findElement(By.xpath("//div[@class='p-checkbox-box p-component p-clickable']/following::td[contains(text(),'Blue Band')]/../td/div/div[2]/span")).click();
+		System.out.println("Successfully selected the checkbox");
 	}
 
+	
 	@And("^i click on search button$")
 	public void i_click_on_search_button() throws Throwable {
 		driver.findElement(By.id("nav-search-submit-button")).click();
